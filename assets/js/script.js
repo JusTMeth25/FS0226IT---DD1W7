@@ -83,7 +83,7 @@ function renderLibri() {
   });
 
   if (contatore) {
-    contatore.replaceChildren(document.createTextNode(`(${libri.length})`));
+    contatore.replaceChildren(document.createTextNode(`${libri.length}`));
   }
 }
 
