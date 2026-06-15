@@ -2,11 +2,11 @@ class Libro {
   static contatore = 0;
 
   constructor(_titolo, _autore, _anno) {
+    this.id = ++Libro.contatore;
     this.titolo = _titolo;
     this.autore = _autore;
     this.anno = _anno;
     this.letto = false;
-    this.id = Libro.contatore++;
   }
 
   segnaComeLetto() {
@@ -34,57 +34,27 @@ let libri = [];
 
 // === Render ===
 function renderLibri() {
-  const listaLibri = document.getElementById("lista-libri");
-  const contatore = document.getElementById("contatore");
+  const html = libri
+    .map(
+      (l) =>
+        `
+        <li class="${l.letto ? "letto" : ""}" data-id="${l.id}">
+            <div class="info">
+                <span class="titolo">${l.titolo}</span>
+                <span class="badge-formato">${l.formato()}</span>
+            <div class="meta">${l.autore} - ${l.anno}</div>
+            </div>
+            <div class="azioni">
+                ${l.letto ? "✓ letto" : '<button data-azione="leggi">Segna come letto</button>'}
+                <button data-azione="Rimuovi">Rimuovi</button>
+            </div>
+            </li>
+            `,
+    )
+    .join("");
 
-  listaLibri.replaceChildren();
-
-  libri.map((l) => {
-    const li = document.createElement("li");
-
-    li.className = l.letto ? "letto" : "";
-    li.dataset.id = l.id;
-
-    const info = document.createElement("div");
-    info.classList.add("info");
-
-    info.append(document.createTextNode(l.titolo));
-    info.append(document.createTextNode(" "));
-
-    const badgeFormato = document.createElement("span");
-    badgeFormato.classList.add("badge-formato");
-    badgeFormato.append(document.createTextNode(l.formato()));
-
-    const meta = document.createElement("div");
-    meta.classList.add("meta");
-    meta.append(document.createTextNode(`${l.autore} - ${l.anno}`));
-
-    info.append(badgeFormato, meta);
-
-    const azioni = document.createElement("div");
-    azioni.classList.add("azioni");
-
-    if (l.letto === false) {
-      const btnLetto = document.createElement("button");
-      btnLetto.dataset.azione = "leggi";
-      btnLetto.append(document.createTextNode("Segna come letto"));
-      azioni.append(btnLetto);
-    } else {
-      azioni.append(document.createTextNode("✅ letto"));
-    }
-
-    const btnRimuovi = document.createElement("button");
-    btnRimuovi.dataset.azione = "Rimuovi";
-    btnRimuovi.append(document.createTextNode("Rimuovi"));
-    azioni.append(btnRimuovi);
-
-    li.append(info, azioni);
-    listaLibri.append(li);
-  });
-
-  if (contatore) {
-    contatore.replaceChildren(document.createTextNode(`${libri.length}`));
-  }
+  document.getElementById("lista-libri").innerHTML = html;
+  document.getElementById("contatore").textContent = libri.length;
 }
 
 // === Mostra / nasconde campo dimensione ===
@@ -110,8 +80,8 @@ document.getElementById("aggiungi-libro").addEventListener("submit", (e) => {
   const autore = e.target.autore.value;
   const anno = parseInt(e.target.anno.value);
   const formato = e.target.formato.value;
-  const dimensioneMb = parseFloat(e.target.dimensione.value);
-  const durataMinuti = parseInt(e.target.durata.value);
+  const dimensioneMb = parseFloat(e.target.dimensione.value) || 0;
+  const durataMinuti = parseInt(e.target.durata.value) || 0;
 
   let nuovoLibro;
 
