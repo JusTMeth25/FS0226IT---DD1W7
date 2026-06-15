@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini-libreria — Settimana VII Giorno I</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
@@ -19,6 +21,46 @@
 
     <section class="form-section">
       <!-- form per aggiungere un libro: titolo, autore, anno, formato (cartaceo/digitale) -->
+      <h2>Aggiungi un libro</h2>
+      <form id="aggiungi-libro" class="form">
+        <div class="campo">
+          <div class="row mb-3">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Titolo</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="colFormLabel">
+            </div>
+          </div>
+        </div>
+        <div class="campo">
+          <div class="row mb-3">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Autore</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="colFormLabel">
+            </div>
+          </div>
+        </div>
+        <div class="campo">
+          <div class="row mb-3">
+            <label for="colFormLabel" class="col-sm-2 col-form-label">Anno</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="colFormLabel">
+            </div>
+          </div>
+        </div>
+        <div class="campo">
+          Formato
+          <select class="form-select mb-3" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">Cartaceo</option>
+            <option value="2">Digitale</option>
+          </select>
+        </div>
+        <div class="campo-condizionale mb-3" id="campo-dimensione">
+          Dimensione MB
+          <input type="number" step="0.1">
+        </div>
+        <input class="btn btn-primary mb-3" type="submit" value="Aggiungi">
+      </form>
     </section>
 
     <section class="lista-section">
@@ -29,7 +71,9 @@
     </section>
 
   </main>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
   <script src="/assets/js/script.js"></script>
 </body>
 
