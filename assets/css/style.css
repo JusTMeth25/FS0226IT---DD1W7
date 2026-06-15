@@ -1,8 +1,9 @@
 /* Mini-libreria — Settimana VII Giorno I
    Stile minimal: il focus è sulla logica JS, non sul layout. */
 
-
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -26,8 +27,52 @@ body {
   text-align: center;
 }
 
-.site-header h1 { margin: 0 0 8px; }
-.site-header p  { margin: 0; opacity: 0.85; }
-
+.site-header h1 {
+  margin: 0 0 8px;
+}
+.site-header p {
+  margin: 0;
+  opacity: 0.85;
+}
 
 /* Aggiungi qui le tue regole per form, lista libri, bottoni, ecc. */
+.form-section {
+  margin: 20px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+  margin: 0 0 20px;
+  font-size: 1.5em;
+}
+
+.lista-section {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.lista-section h2 {
+  margin: 0 0 20px;
+  font-size: 1.5em;
+}
+
+.lista-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-section li {
+  margin: 0 0 10px;
+  padding: 10px;
+}
+
+.lista-libri {
+  margin: 20px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

@@ -59,12 +59,16 @@
           Dimensione MB
           <input type="number" step="0.1" name="dimensione">
         </div>
+        <div class="campo-condizionale mb-3" id="campo-durata" hidden>
+          Durata minuti
+          <input type="number" step="1" name="durata">
+        </div>
         <input class="btn btn-primary mb-3" type="submit" value="Aggiungi">
       </form>
     </section>
 
     <section class="lista-section">
-      <h2>I tuoi libri <span id="contatore">(0)</span> </h2>
+      <h2>I tuoi libri (<span id="contatore">0</span>) </h2>
       <ul id="lista-libri">
         <!-- popolato da JavaScript -->
       </ul>

@@ -94,6 +94,12 @@ document.getElementById("formato").addEventListener("change", (e) => {
   } else {
     document.getElementById("campo-dimensione").setAttribute("hidden", "");
   }
+
+  if (e.target.value === "audio") {
+    document.getElementById("campo-durata").removeAttribute("hidden");
+  } else {
+    document.getElementById("campo-durata").setAttribute("hidden", "");
+  }
 });
 
 // === Submit form ===
@@ -105,11 +111,14 @@ document.getElementById("aggiungi-libro").addEventListener("submit", (e) => {
   const anno = parseInt(e.target.anno.value);
   const formato = e.target.formato.value;
   const dimensioneMb = parseFloat(e.target.dimensione.value);
+  const durataMinuti = parseInt(e.target.durata.value);
 
   let nuovoLibro;
 
   if (formato === "digitale") {
     nuovoLibro = new LibroDigitale(titolo, autore, anno, dimensioneMb);
+  } else if (formato === "audio") {
+    nuovoLibro = new LibroAudio(titolo, autore, anno, dimensioneMb);
   } else {
     nuovoLibro = new Libro(titolo, autore, anno);
   }
