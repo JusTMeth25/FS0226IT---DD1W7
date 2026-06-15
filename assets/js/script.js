@@ -118,7 +118,7 @@ document.getElementById("aggiungi-libro").addEventListener("submit", (e) => {
   if (formato === "digitale") {
     nuovoLibro = new LibroDigitale(titolo, autore, anno, dimensioneMb);
   } else if (formato === "audio") {
-    nuovoLibro = new LibroAudio(titolo, autore, anno, dimensioneMb);
+    nuovoLibro = new LibroAudio(titolo, autore, anno, durataMinuti);
   } else {
     nuovoLibro = new Libro(titolo, autore, anno);
   }
